@@ -174,36 +174,40 @@ function extra9(numbVar){
     }
 }
 //10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
-// function extra10(N){
-//     let max=(N-1);
-//     let numbVar=1;
-//     let start=0;
-//     let matriceTemp=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
-//     let prova=1;
-//     while(prova<2){
-//         for (let index = start; index<=max; index++) {
-//           matriceTemp[start][index]=numbVar;
-//           numbVar++;  
-//         }
-//         for (let index = (start+1); index<max; index++) {
-//             matriceTemp[index][(max-1)]=numbVar;
-//             numbVar++;  
-//         }
-//         max--;
-//         for (let index = (max-1); index >=start; index--) {
-//             matriceTemp[max][index]=numbVar;
-//             numbVar++;  
-//         }
-        
-//         for (let index = (max-1); index >start; index--) {
-//             matriceTemp[index][start]=numbVar;
-//             numbVar++;  
-//         }
-//         console.log(matriceTemp);
-//         start++;
-//         max--;
-//         console.log(start,max);
-        
-//         prova++;
-//     }
-// }
+function extra10(N){
+    let max=(N-1);
+    let numbVar=1;
+    let start=0;
+    let setNumb=0;
+    let matriceTemp=[[]];
+    for(let i=0;i<N;i++){
+        for (let index = 0; index < N; index++) {
+           matriceTemp[i][index]=0; 
+        }
+    }
+    while(numbVar<=(N*N)){
+        for (let index = start; index<=max; index++) {
+          matriceTemp[start][index]=numbVar;
+          numbVar++;  
+        }
+        for (let index = (start+1); index<=max; index++) {
+            matriceTemp[index][(max)]=numbVar;
+            numbVar++;  
+        }
+        for (let index =(max-1); index >=start; index--) {
+            matriceTemp[max][index]=numbVar;
+            numbVar++;  
+        }
+        for (let index = (max-1); index >start; index--) {
+            matriceTemp[index][start]=numbVar;
+            numbVar++;  
+        }
+        console.log(matriceTemp);
+        start++;
+        max--;
+        console.log(start,max);
+    }
+    for (const iterator of matriceTemp) {
+        console.log(iterator);    
+    }
+}
